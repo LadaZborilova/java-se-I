@@ -1,0 +1,21 @@
+#Hello, this is great place to write any required test for your application as this workflow is already part of Pull request status check!
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+name: Run Test
+jobs:
+  sonarqube:
+    runs-on: 1-pf-linux-prod
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      # Triggering SonarQube analysis
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
