@@ -23,7 +23,7 @@ public class PFArray {
     public static int[] generateManualArray() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Elements:");
+        System.out.println("How many elements do you need?:");
         int size = scanner.nextInt();
 
         int[] manualArray = new int[size];
@@ -32,7 +32,68 @@ public class PFArray {
             System.out.print("Number " + (i + 1) + ": ");
             manualArray[i] = scanner.nextInt();
         }
-
         return manualArray;
     }
+    public static int[] addElement(int[] oldArray, int newValue) {
+        int[] newArray = new int[oldArray.length + 1];
+        for (int i = 0; i < oldArray.length; i++) {
+            newArray[i] = oldArray[i];
+        }
+        newArray[oldArray.length] = newValue;
+        return newArray;
+    }
+    public static int findMax (int[] array){
+        int max = array[0];
+        for (int i = 1; i < array.length; i++){
+            if(array[i] > max)
+                max = array[i];
+        }
+        return max;
+    }
+    public static int findMin (int[] array){
+        int min = array[0];
+        for (int i = 1; i < array.length; i++){
+            if(array[i] < min)
+                min = array[i];
+        }
+        return min;
+    }
+    public static int[] removeElement(int[] array, int numberToRemove, boolean removeAll) {
+        int count = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == numberToRemove) {
+                if (removeAll) {
+                    count++;
+                } else {
+                    count++;
+                    break;
+                }
+            }
+        }
+        if (count == 0) {
+            return array;
+        }
+
+        int[] result = new int[array.length - count];
+        int j = 0;
+
+        boolean found = false;
+
+        for (int k : array) {
+            if (removeAll && k == numberToRemove) {
+
+            } else if (!removeAll && k == numberToRemove && !found) {
+                found = true;
+            } else {
+                result[j] = k;
+                j++;
+            }
+        }
+
+        return result;
+    }
+    public static int[] clearArray(int[] array) {
+        return null;
+    }
+
 }
