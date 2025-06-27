@@ -58,7 +58,7 @@ public class PFArray {
         }
         return min;
     }
-    public static int[] removeElement(int[] array, int numberToRemove, boolean removeAll) {
+    public static int countElementsToRemove(int[] array, int numberToRemove, boolean removeAll){
         int count = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] == numberToRemove) {
@@ -70,10 +70,11 @@ public class PFArray {
                 }
             }
         }
-        if (count == 0) {
-            return array;
-        }
+            return count;
+    }
+    public static int[] removeElement(int[] array, int numberToRemove, boolean removeAll){
 
+        int count = PFArray.countElementsToRemove(array, numberToRemove, removeAll);
         int[] result = new int[array.length - count];
         int j = 0;
 

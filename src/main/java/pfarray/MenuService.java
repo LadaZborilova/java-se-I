@@ -73,6 +73,11 @@ public class MenuService {
                 }
                 System.out.println();
             }
+            if (choice == 6) {
+                System.out.println("\nEnter number to clear array:");
+                myArray = PFArray.clearArray(myArray);
+                System.out.println("The array is cleared.");
+            }
         }
     }
 }
