@@ -11,6 +11,7 @@ class PFArrayTest {
         int result = PFArray.findMax(input);
         assertEquals(7, result);
     }
+
     @Test
     void testAddElementHappyDay() {
         int[] input = {1, 2, 3};
@@ -29,6 +30,7 @@ class PFArrayTest {
         int result = PFArray.findMin(input);
         assertEquals(2, result);
     }
+
     @Test
     void testCreateRandomArrayHappyDay() {
         int[] result = PFArray.generateRandomArray();
