@@ -5,16 +5,18 @@ import java.util.Scanner;
 
 public class PFArray {
 
+    private static final Random random = new Random();
+
     public static int[] generateRandomArray() {
-        Random r = new Random();
-        int min = 3;
-        int max = 20;
-        int length = r.nextInt(max - min + 1) + min;
 
-        int[] array = new int[length];
+        int minArrayLength = 3;
+        int maxArrayLength = 20;
+        int arrayLength = random.nextInt(maxArrayLength - minArrayLength + 1) + minArrayLength;
 
-        for (int i = 0; i < length; i++) {
-            array[i] = r.nextInt(201) - 100;
+        int[] array = new int[arrayLength];
+
+        for (int i = 0; i < arrayLength; i++) {
+            array[i] = random.nextInt(201) - 100;
         }
 
         return array;
@@ -34,6 +36,7 @@ public class PFArray {
         }
         return manualArray;
     }
+
     public static int[] addElement(int[] oldArray, int newValue) {
         int[] newArray = new int[oldArray.length + 1];
         for (int i = 0; i < oldArray.length; i++) {
@@ -42,23 +45,26 @@ public class PFArray {
         newArray[oldArray.length] = newValue;
         return newArray;
     }
-    public static int findMax (int[] array){
-        int max = array[0];
-        for (int i = 1; i < array.length; i++){
-            if(array[i] > max)
-                max = array[i];
+
+    public static int findMax(int[] array) {
+        int maxValue = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > maxValue)
+                maxValue = array[i];
         }
-        return max;
+        return maxValue;
     }
-    public static int findMin (int[] array){
-        int min = array[0];
-        for (int i = 1; i < array.length; i++){
-            if(array[i] < min)
-                min = array[i];
+
+    public static int findMin(int[] array) {
+        int minValue = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < minValue)
+                minValue = array[i];
         }
-        return min;
+        return minValue;
     }
-    public static int countElementsToRemove(int[] array, int numberToRemove, boolean removeAll){
+
+    public static int countElementsToRemove(int[] array, int numberToRemove, boolean removeAll) {
         int count = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] == numberToRemove) {
@@ -70,9 +76,10 @@ public class PFArray {
                 }
             }
         }
-            return count;
+        return count;
     }
-    public static int[] removeElement(int[] array, int numberToRemove, boolean removeAll){
+
+    public static int[] removeElement(int[] array, int numberToRemove, boolean removeAll) {
 
         int count = PFArray.countElementsToRemove(array, numberToRemove, removeAll);
         int[] result = new int[array.length - count];
@@ -93,6 +100,7 @@ public class PFArray {
 
         return result;
     }
+
     public static int[] clearArray(int[] array) {
         return null;
     }
