@@ -1,0 +1,13 @@
+# Java build
+target/
+*.class
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Logs
+*.log
+
+# OS
+.DS_Store
