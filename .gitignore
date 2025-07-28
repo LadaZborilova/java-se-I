@@ -1,5 +1,5 @@
 # Java build
-/target/
+target/
 *.class
 
 # IntelliJ IDEA

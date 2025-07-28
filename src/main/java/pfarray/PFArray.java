@@ -3,9 +3,17 @@ package pfarray;
 import java.util.Random;
 import java.util.Scanner;
 
+
 public class PFArray {
 
     private static final Random random = new Random();
+
+    public static void  checkNotNull(int[] array) {
+        if (array == null) {
+            throw new IllegalArgumentException("Array must not be null");
+        }
+
+    }
 
     public static int[] generateRandomArray() {
 
@@ -38,6 +46,7 @@ public class PFArray {
     }
 
     public static int[] addElement(int[] oldArray, int newValue) {
+        PFArray.checkNotNull(oldArray);
         int[] newArray = new int[oldArray.length + 1];
         for (int i = 0; i < oldArray.length; i++) {
             newArray[i] = oldArray[i];
@@ -47,6 +56,10 @@ public class PFArray {
     }
 
     public static int findMax(int[] array) {
+        PFArray.checkNotNull(array);
+        if (array.length == 0) {
+            throw new IllegalArgumentException("Array is empty");
+        }
         int maxValue = array[0];
         for (int i = 1; i < array.length; i++) {
             if (array[i] > maxValue)
@@ -56,6 +69,10 @@ public class PFArray {
     }
 
     public static int findMin(int[] array) {
+        PFArray.checkNotNull(array);
+        if (array.length == 0) {
+            throw new IllegalArgumentException("Array is empty");
+        }
         int minValue = array[0];
         for (int i = 1; i < array.length; i++) {
             if (array[i] < minValue)
@@ -80,8 +97,11 @@ public class PFArray {
     }
 
     public static int[] removeElement(int[] array, int numberToRemove, boolean removeAll) {
-
+        PFArray.checkNotNull(array);
         int count = PFArray.countElementsToRemove(array, numberToRemove, removeAll);
+        if (count == 0) {
+            System.out.println ("\u001B[31mNo such element exception\u001B[0m");
+        }
         int[] result = new int[array.length - count];
         int j = 0;
 
