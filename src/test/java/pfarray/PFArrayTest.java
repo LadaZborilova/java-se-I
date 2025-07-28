@@ -9,14 +9,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class PFArrayTest {
 
     @Test
-    void testFindMax_HappyDay() {
+    void testFindMaxHappyDay() {
         int[] input = {4, 7, 2};
         int result = PFArray.findMax(input);
         assertEquals(7, result);
     }
 
     @Test
-    void testAddElement_HappyDay() {
+    void testAddElementHappyDay() {
         int[] input = {1, 2, 3};
         int newValue = 4;
         int[] result = PFArray.addElement(input, newValue);
@@ -28,14 +28,14 @@ class PFArrayTest {
     }
 
     @Test
-    void testFindMin_HappyDay() {
+    void testFindMinHappyDay() {
         int[] input = {4, 7, 2};
         int result = PFArray.findMin(input);
         assertEquals(2, result);
     }
 
     @Test
-    void testCreateRandomArray_HappyDay() {
+    void testCreateRandomArrayHappyDay() {
         int[] result = PFArray.generateRandomArray();
         assertNotNull(result);
         assertTrue(result.length >= 1 && result.length <= 100);
